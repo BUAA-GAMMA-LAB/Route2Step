@@ -1,0 +1,41 @@
+# Route2Step evaluation runtime dependencies.
+#
+# Use Python 3.10. PyTorch is hardware/CUDA dependent, so these ranges avoid
+# hard-coding the reference machine's CUDA 12.8 nightly wheel. If a matching
+# torch/torchvision pair is already installed, keep it and install the rest of
+# this file without forcing a replacement.
+
+# PyTorch and image/model inference
+torch>=2.3,<3
+torchvision>=0.18,<1
+numpy==1.26.4
+scipy==1.15.3
+scikit-learn==1.7.2
+pillow==11.3.0
+opencv-python==4.11.0.86
+imageio==2.37.2
+imageio-ffmpeg==0.6.0
+matplotlib==3.10.8
+numpy-quaternion==2024.0.13
+
+# Habitat navigation evaluation
+gym==0.23.0
+habitat-lab==0.2.4
+habitat-sim==0.2.4
+omegaconf==2.3.0
+hydra-core==1.3.2
+
+# Static QA, HTTP vLLM clients, and current agent inference API
+sentence-transformers==5.2.3
+ms-swift==3.12.5
+transformers==4.57.6
+accelerate==1.10.1
+safetensors==0.7.0
+sentencepiece==0.2.1
+einops==0.8.2
+qwen-vl-utils==0.0.14
+modelscope==1.34.0
+httpx==0.28.1
+requests==2.32.5
+tqdm==4.67.3
+pyyaml==6.0.3
