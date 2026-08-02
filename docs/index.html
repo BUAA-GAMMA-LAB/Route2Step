@@ -1,125 +1,218 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Route2Step: Separating semantic progress from local execution in vision-and-language navigation."
-    />
-    <title>Route2Step</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Route2Step: Separating Semantic Progress from Local Execution in Vision-and-Language Navigation.">
+  <meta name="keywords" content="Vision-and-Language Navigation, VLN, MIA, MAG, Route2Step">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Route2Step: From Routes to Steps</title>
 
-  <body>
-    <main class="page">
-      <header class="hero">
-        <p class="project-name">Route2Step</p>
-        <h1>From Routes to Steps: Separating Semantic Progress from Local Execution in Vision-and-Language Navigation</h1>
-        <p class="authors">Xiangyun Huang</p>
-        <p class="venue">Open-source project</p>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
 
-        <div class="links" aria-label="Project resources">
-          <a href="https://github.com/Sisyphus-hxy/Route2Step" target="_blank" rel="noreferrer">Code</a>
-          <a href="https://huggingface.co/XiangyunHuang/Route2Step" target="_blank" rel="noreferrer">Models</a>
-          <a href="https://huggingface.co/datasets/XiangyunHuang/Route2Step-Data" target="_blank" rel="noreferrer">Data</a>
-          <a href="https://github.com/Sisyphus-hxy/Route2Step/blob/main/README.md" target="_blank" rel="noreferrer">README</a>
-        </div>
-      </header>
+<body>
+<section class="hero publication-header">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            From Routes to Steps: Separating Semantic Progress from Local Execution in Vision-and-Language Navigation
+          </h1>
 
-      <!-- Add the overview figure and project video here when they are ready. -->
-
-      <section class="section text-section">
-        <h2>TL;DR</h2>
-        <p>
-          Vision-and-language navigation requires an agent to identify which route step is active and to execute that
-          step from egocentric observations. Route2Step decouples these capabilities: the Instruction Analysis Module
-          (MIA) predicts the active sub-instruction and execution state from the full route context, while the Action
-          Generation Module (MAG) produces local action chunks conditioned on that state. E-SPA supplies step-level
-          alignment for route demonstrations without additional manual temporal labels.
-        </p>
-      </section>
-
-      <section class="section text-section">
-        <h2>Approach</h2>
-        <h3>Route-level understanding and step-level execution</h3>
-        <p>
-          The explicit interface makes errors easier to separate. State-level corrective supervision teaches MIA to
-          maintain or update semantic progress, while selective action supervision is reserved for local recovery when
-          repeated attempts fail under the correct active step.
-        </p>
-
-        <div class="two-column">
-          <div>
-            <h3>E-SPA alignment</h3>
-            <p>
-              Energy-minimizing Semantic Path Alignment associates fine-grained sub-instructions with contiguous
-              trajectory segments. The resulting alignments support step-conditioned supervision for both modules.
-            </p>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="#">Xiangyun Huang</a></span>
           </div>
-          <div>
-            <h3>Level-separated correction</h3>
-            <p>
-              Off-path histories can correct semantic progress without conflating that error with local action
-              execution, improving recovery while keeping the target step explicit.
-            </p>
+          <div class="is-size-6 publication-venue">Route2Step</div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- Add a paper link here when the final paper is uploaded. -->
+              <span class="link-block">
+                <a href="https://github.com/Sisyphus-hxy/Route2Step" class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noreferrer">
+                  <span class="icon">⌘</span><span>Code</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://huggingface.co/XiangyunHuang/Route2Step" class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noreferrer">
+                  <span class="icon">◈</span><span>Models</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/XiangyunHuang/Route2Step-Data" class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noreferrer">
+                  <span class="icon">▤</span><span>Data</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/Sisyphus-hxy/Route2Step/blob/main/README.md" class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noreferrer">
+                  <span class="icon">?</span><span>README</span>
+                </a>
+              </span>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <section class="section results-section">
-        <h2>Evaluation</h2>
-        <p class="section-lead">Results on R2R-CE and the released static evaluation protocol.</p>
+<!-- Add a project video here later.
+<section class="hero teaser">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <video id="teaser" controls muted loop playsinline autoplay style="width: 100%;">
+        <source src="./static/videos/teaser.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+-->
 
-        <div class="result-highlight">
-          <div><strong>48.1 → 55.3</strong><span>Success Rate (SR)</span></div>
-          <div><strong>43.3 → 48.2</strong><span>Success weighted by Path Length (SPL)</span></div>
-          <div><strong>190K</strong><span>state-level corrective samples</span></div>
-          <div><strong>11.5K</strong><span>direct action-supervised states</span></div>
-        </div>
+<section class="section" style="padding-top: 0;">
+  <div class="container is-max-desktop">
+    <div class="content has-text-centered">
+      <h2 class="title is-4 title-with-lines">TL;DR</h2>
+      <p class="subtitle has-text-centered tl-dr">
+        Route2Step decouples route-level semantic progress tracking from local action execution in vision-and-language navigation.
+        MIA identifies the active sub-instruction and execution state, while MAG generates local action chunks conditioned on that state.
+      </p>
+    </div>
+  </div>
+</section>
 
-        <p class="caption result-caption">Route2Step improves R2R-CE navigation while assigning supervision to the level it is intended to improve.</p>
-      </section>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content">
+      <h2 class="title is-3 has-text-centered title-with-lines">Approach</h2>
 
-      <section class="section setup-section">
-        <h2>Getting started</h2>
-        <p>
-          The release provides evaluation code. Datasets, scene assets, trajectory images, checkpoints, and the
-          external vLLM server are not bundled with the repository.
-        </p>
-        <pre><code>conda create -n route2step_py310 python=3.10 -y
+      <!-- Add the final framework figure here later.
+      <div class="has-text-centered">
+        <img src="./static/images/overview.png" alt="Route2Step framework overview" style="width: 80%;">
+      </div>
+      -->
+
+      <h3 class="title is-4 has-text-centered">Instruction Analysis Module (MIA)</h3>
+      <p>
+        MIA receives the full route instruction and visual history. It predicts which sub-instruction is currently
+        active and whether the agent is in a normal or recovering execution state.
+      </p>
+
+      <h3 class="title is-4 has-text-centered">Action Generation Module (MAG)</h3>
+      <p>
+        MAG conditions on the explicit progress state and recent observations to generate local action chunks. This
+        separates the question of <em>which step to follow</em> from <em>how to execute that step</em>.
+      </p>
+
+      <h3 class="title is-4 has-text-centered">E-SPA and level-separated correction</h3>
+      <p>
+        E-SPA aligns fine-grained sub-instructions with contiguous trajectory segments without additional manual
+        temporal labels. State-level corrective supervision is used for semantic progress, while direct action
+        supervision is reserved for repeated local execution failures.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content">
+      <h2 class="title is-3 has-text-centered title-with-lines">Evaluation in Simulation</h2>
+      <h3 class="title is-4 has-text-centered">Quantitative Results</h3>
+
+      <p>
+        On R2R-CE, Route2Step improves success rate from <b>48.1%</b> to <b>55.3%</b> and SPL from
+        <b>43.3%</b> to <b>48.2%</b>. The training recipe uses approximately <b>190K</b> state-level corrective
+        samples and only <b>11.5K</b> directly action-supervised states.
+      </p>
+
+      <div class="table-container result-table">
+        <table class="table is-bordered is-fullwidth">
+          <thead>
+            <tr>
+              <th>R2R-CE Val-Unseen</th>
+              <th>SR ↑</th>
+              <th>SPL ↑</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Baseline</td>
+              <td>48.1</td>
+              <td>43.3</td>
+            </tr>
+            <tr class="route2step-row">
+              <td><b>Route2Step</b></td>
+              <td><b>55.3</b></td>
+              <td><b>48.2</b></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Add simulation videos and qualitative results here later. -->
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content">
+      <h2 class="title is-3 has-text-centered title-with-lines">Getting Started</h2>
+      <p>
+        The released package focuses on evaluation. Datasets, scene assets, trajectory images, checkpoints, and the
+        external OpenAI-compatible vLLM server are not bundled with the code.
+      </p>
+      <pre><code>conda create -n route2step_py310 python=3.10 -y
 conda activate route2step_py310
 pip install -r requirements_eval.txt</code></pre>
 
-        <h3>Static M1 evaluation</h3>
-        <pre><code>TASK_TYPE=single_m1 \
+      <h3 class="title is-4">Static M1 evaluation</h3>
+      <pre><code>TASK_TYPE=single_m1 \
 DATASET=rxr_deviation \
 RESULT_DIR=eval_results/m1/rxr_deviation \
 bash scripts/eval_m1_static_qa.sh</code></pre>
-        <p class="small-note">See the <a href="https://github.com/Sisyphus-hxy/Route2Step/blob/main/README.md" target="_blank" rel="noreferrer">README</a> for navigation evaluation commands and expected paths.</p>
-      </section>
+      <p>
+        See the <a href="https://github.com/Sisyphus-hxy/Route2Step/blob/main/README.md" target="_blank" rel="noreferrer">README</a>
+        for navigation evaluation commands and expected local paths.
+      </p>
+    </div>
+  </div>
+</section>
 
-      <section class="section resources-section">
-        <h2>Resources</h2>
-        <div class="resource-list">
-          <a href="https://github.com/Sisyphus-hxy/Route2Step" target="_blank" rel="noreferrer"><span>Code</span><small>GitHub repository</small><b>↗</b></a>
-          <a href="https://huggingface.co/XiangyunHuang/Route2Step" target="_blank" rel="noreferrer"><span>Model weights</span><small>MIA and MAG checkpoints</small><b>↗</b></a>
-          <a href="https://huggingface.co/datasets/XiangyunHuang/Route2Step-Data" target="_blank" rel="noreferrer"><span>Data</span><small>Route2Step-Data</small><b>↗</b></a>
-        </div>
-      </section>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content">
+      <h2 class="title is-3 has-text-centered title-with-lines">Resources</h2>
+      <table class="table is-fullwidth resource-table">
+        <tbody>
+          <tr><td><b>Code</b></td><td>Evaluation scripts and utilities</td><td><a href="https://github.com/Sisyphus-hxy/Route2Step" target="_blank" rel="noreferrer">GitHub ↗</a></td></tr>
+          <tr><td><b>Models</b></td><td>MIA and MAG checkpoints</td><td><a href="https://huggingface.co/XiangyunHuang/Route2Step" target="_blank" rel="noreferrer">Hugging Face ↗</a></td></tr>
+          <tr><td><b>Data</b></td><td>Route2Step-Data</td><td><a href="https://huggingface.co/datasets/XiangyunHuang/Route2Step-Data" target="_blank" rel="noreferrer">Hugging Face ↗</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
 
-      <section class="section citation-section">
-        <h2>Citation</h2>
-        <pre><code>From Routes to Steps: Separating Semantic Progress from Local Execution
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3 title-with-lines">Citation</h2>
+    <pre><code>From Routes to Steps: Separating Semantic Progress from Local Execution
 in Vision-and-Language Navigation.
 Route2Step.</code></pre>
-        <p class="small-note">Publication details will be updated with the final paper version.</p>
-      </section>
+    <p class="is-size-7">Publication details will be updated with the final paper version.</p>
+  </div>
+</section>
 
-      <footer>
-        <span>Route2Step</span>
-        <a href="https://github.com/Sisyphus-hxy/Route2Step" target="_blank" rel="noreferrer">GitHub ↗</a>
-      </footer>
-    </main>
-  </body>
+<footer class="footer">
+  <div class="container has-text-centered">
+    <p>
+      Route2Step · <a href="https://github.com/Sisyphus-hxy/Route2Step" target="_blank" rel="noreferrer">GitHub ↗</a>
+    </p>
+    <p class="is-size-7">Project page structure adapted from the academic project-page style used by StreamVLN and Nerfies.</p>
+  </div>
+</footer>
+</body>
 </html>
