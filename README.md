@@ -4,6 +4,8 @@ This repository contains the implementation of **Route2Step**, a
 vision-and-language navigation framework that separates route-level progress
 tracking from local action execution.
 
+**Project page:** <https://sisyphus-hxy.github.io/Route2Step/>
+
 ## Environment
 
 The released evaluation code targets Python 3.10. Create a new environment or
