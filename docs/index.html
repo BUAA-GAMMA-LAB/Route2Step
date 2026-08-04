@@ -58,7 +58,24 @@
   </div>
 </section>
 
-<!-- Add a project video here later.
+<!-- project video -->
+<section class="section project-video" style="padding-top: 0; padding-bottom: 0;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/vBUAny2WqM0"
+                  title="Route2Step project video"
+                  frameborder="0"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--
 <section class="hero teaser">
   <div class="hero-body">
     <div class="container is-max-desktop">
@@ -110,72 +127,6 @@
         E-SPA aligns fine-grained sub-instructions with contiguous trajectory segments without additional manual
         temporal labels. State-level corrective supervision is used for semantic progress, while direct action
         supervision is reserved for repeated local execution failures.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="content">
-      <h2 class="title is-3 has-text-centered title-with-lines">Evaluation in Simulation</h2>
-      <h3 class="title is-4 has-text-centered">Quantitative Results</h3>
-
-      <p>
-        On R2R-CE, Route2Step improves success rate from <b>48.1%</b> to <b>55.3%</b> and SPL from
-        <b>43.3%</b> to <b>48.2%</b>. The training recipe uses approximately <b>190K</b> state-level corrective
-        samples and only <b>11.5K</b> directly action-supervised states.
-      </p>
-
-      <div class="table-container result-table">
-        <table class="table is-bordered is-fullwidth">
-          <thead>
-            <tr>
-              <th>R2R-CE Val-Unseen</th>
-              <th>SR ↑</th>
-              <th>SPL ↑</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Baseline</td>
-              <td>48.1</td>
-              <td>43.3</td>
-            </tr>
-            <tr class="route2step-row">
-              <td><b>Route2Step</b></td>
-              <td><b>55.3</b></td>
-              <td><b>48.2</b></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Add simulation videos and qualitative results here later. -->
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="content">
-      <h2 class="title is-3 has-text-centered title-with-lines">Getting Started</h2>
-      <p>
-        The released package focuses on evaluation. Datasets, scene assets, trajectory images, checkpoints, and the
-        external OpenAI-compatible vLLM server are not bundled with the code.
-      </p>
-      <pre><code>conda create -n route2step_py310 python=3.10 -y
-conda activate route2step_py310
-pip install -r requirements_eval.txt</code></pre>
-
-      <h3 class="title is-4">Static M1 evaluation</h3>
-      <pre><code>TASK_TYPE=single_m1 \
-DATASET=rxr_deviation \
-RESULT_DIR=eval_results/m1/rxr_deviation \
-bash scripts/eval_m1_static_qa.sh</code></pre>
-      <p>
-        See the <a href="https://github.com/Sisyphus-hxy/Route2Step/blob/main/README.md" target="_blank" rel="noreferrer">README</a>
-        for navigation evaluation commands and expected local paths.
       </p>
     </div>
   </div>

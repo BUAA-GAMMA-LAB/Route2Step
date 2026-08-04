@@ -37,6 +37,23 @@ body {
   font-size: 1rem;
 }
 
+.publication-video {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.publication-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .title-with-lines {
   display: flex;
   align-items: center;
@@ -70,35 +87,6 @@ body {
 
 .content p {
   margin-bottom: 1.1rem;
-}
-
-.result-table {
-  max-width: 720px;
-  margin: 2rem auto 0;
-}
-
-.result-table th,
-.result-table td {
-  text-align: center;
-  vertical-align: middle;
-}
-
-.result-table th:first-child,
-.result-table td:first-child {
-  text-align: left;
-}
-
-.result-table thead th {
-  border-top: 3px solid #333;
-  border-bottom: 2px solid #333;
-}
-
-.result-table tbody tr:last-child td {
-  border-bottom: 3px solid #333;
-}
-
-.route2step-row td {
-  background: #f1f8f6;
 }
 
 .resource-table {
