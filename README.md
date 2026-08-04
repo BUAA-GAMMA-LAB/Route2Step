@@ -2,14 +2,17 @@
 <p align="center">
 <h1 align="center"><strong>From Routes to Steps: Separating Semantic Progress from Local Execution in Vision-and-Language Navigation</strong></h1>
   <p align="center">
+    <strong>
     Xiangyun Huang<sup>1</sup>&emsp;
     Xiangchen Wang<sup>2</sup>&emsp;
     Runfeng Lin<sup>1,3</sup>&emsp;
-    Yihao Xu<sup>1</sup>&emsp;
+    Yihao Xu<sup>1</sup>
+    <br>
     Kangyu Huang<sup>4</sup>&emsp;
     Jiang Hengchen<sup>1,5</sup>&emsp;
     Xiwang Dong<sup>1</sup>&emsp;
     Lin Jiarong<sup>1,*</sup>
+    </strong>
     <br>
     <sup>1</sup>Beihang University&emsp;
     <sup>2</sup>Southern University of Science and Technology&emsp;
@@ -18,21 +21,18 @@
     <sup>4</sup>Harbin Institute of Technology, Shenzhen&emsp;
     <sup>5</sup>Dalian University of Technology
     <br>
-    <small><sup>*</sup>Corresponding Author</small>
+    <code>23231088@buaa.edu.cn, zivlin@buaa.edu.cn</code>
   </p>
 </p>
 
-<div id="top" align="center">
-
-<!-- TODO: add the arXiv link when available. -->
-![arxiv](https://img.shields.io/badge/arXiv-coming_soon-red?logo=arxiv)
-[![project](https://img.shields.io/badge/Project_Page-0065D3?logo=rocket&logoColor=white)](https://sisyphus-hxy.github.io/Route2Step/)
-[![hf](https://img.shields.io/badge/Hugging_Face-FF9D00?logo=huggingface&logoColor=white)](https://huggingface.co/XiangyunHuang/Route2Step)
-[![youtube](https://img.shields.io/badge/YouTube-D33846?logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=vBUAny2WqM0)
-<!-- TODO: add the Bilibili link when available. -->
-![bilibili](https://img.shields.io/badge/Bilibili-coming_soon-00A1D6?logo=bilibili&logoColor=white)
-
-</div>
+<!-- TODO: add the arXiv and Bilibili links when available. -->
+<p id="top" align="center">
+  <img src="https://img.shields.io/badge/arXiv-coming_soon-red?logo=arxiv" alt="arXiv">
+  <a href="https://sisyphus-hxy.github.io/Route2Step/"><img src="https://img.shields.io/badge/Project_Page-0065D3?logo=rocket&amp;logoColor=white" alt="Project Page"></a>
+  <a href="https://huggingface.co/XiangyunHuang/Route2Step"><img src="https://img.shields.io/badge/Hugging_Face-FF9D00?logo=huggingface&amp;logoColor=white" alt="Hugging Face"></a>
+  <a href="https://www.youtube.com/watch?v=vBUAny2WqM0"><img src="https://img.shields.io/badge/YouTube-D33846?logo=youtube&amp;logoColor=white" alt="YouTube"></a>
+  <img src="https://img.shields.io/badge/Bilibili-coming_soon-00A1D6?logo=bilibili&amp;logoColor=white" alt="Bilibili">
+</p>
 
 ## 🏠 About
 

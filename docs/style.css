@@ -27,14 +27,25 @@ body {
   display: inline-block;
 }
 
+.publication-author-list {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 .publication-affiliations {
   margin-top: 0.8rem;
   line-height: 1.55;
+  white-space: nowrap;
+}
+
+.publication-affiliations .author-block + .author-block {
+  margin-left: 1.25rem;
 }
 
 .publication-notes {
   margin-top: 0.45rem;
   line-height: 1.45;
+  white-space: nowrap;
 }
 
 .publication-venue {
