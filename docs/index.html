@@ -9,6 +9,8 @@
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -23,31 +25,58 @@
           </h1>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><a href="#">Xiangyun Huang</a></span>
+            <span class="author-block">Xiangyun Huang<sup>1</sup>,</span>
+            <span class="author-block">Xiangchen Wang<sup>2</sup>,</span>
+            <span class="author-block">Runfeng Lin<sup>1,3</sup>,</span>
+            <span class="author-block">Yihao Xu<sup>1</sup>,</span>
+            <span class="author-block">Kangyu Huang<sup>4</sup>,</span>
+            <span class="author-block">Jiang Hengchen<sup>1,5</sup>,</span>
+            <span class="author-block">Xiwang Dong<sup>1</sup>,</span>
+            <span class="author-block">Lin Jiarong<sup>1,*</sup></span>
           </div>
-          <div class="is-size-6 publication-venue">Route2Step</div>
+
+          <div class="is-size-5 publication-authors publication-affiliations">
+            <span class="author-block"><sup>1</sup>Beihang University,</span>
+            <span class="author-block"><sup>2</sup>Southern University of Science and Technology,</span>
+            <span class="author-block"><sup>3</sup>Central South University,</span>
+            <br>
+            <span class="author-block"><sup>4</sup>Harbin Institute of Technology, Shenzhen,</span>
+            <span class="author-block"><sup>5</sup>Dalian University of Technology</span>
+          </div>
+
+          <div class="is-size-6 publication-authors publication-notes">
+            <span class="author-block"><small><sup>*</sup>Corresponding Author</small></span>
+            <br>
+            <span class="author-block"><a href="mailto:23231088@buaa.edu.cn">23231088@buaa.edu.cn</a>,</span>
+            <span class="author-block"><a href="mailto:zivlin@buaa.edu.cn">zivlin@buaa.edu.cn</a></span>
+          </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
-              <!-- Add a paper link here when the final paper is uploaded. -->
+              <!-- TODO: replace # with the Route2Step arXiv URL. -->
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark" title="arXiv link coming soon">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span><span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=vBUAny2WqM0" class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noreferrer">
+                  <span class="icon"><i class="fab fa-youtube"></i></span><span>Video</span>
+                </a>
+              </span>
               <span class="link-block">
                 <a href="https://github.com/Sisyphus-hxy/Route2Step" class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noreferrer">
-                  <span class="icon">⌘</span><span>Code</span>
+                  <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
                 </a>
               </span>
               <span class="link-block">
                 <a href="https://huggingface.co/XiangyunHuang/Route2Step" class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noreferrer">
-                  <span class="icon">◈</span><span>Models</span>
+                  <span class="icon"><img class="brand-icon" src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt=""></span><span>Models</span>
                 </a>
               </span>
               <span class="link-block">
                 <a href="https://huggingface.co/datasets/XiangyunHuang/Route2Step-Data" class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noreferrer">
-                  <span class="icon">▤</span><span>Data</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="https://github.com/Sisyphus-hxy/Route2Step/blob/main/README.md" class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noreferrer">
-                  <span class="icon">?</span><span>README</span>
+                  <span class="icon"><i class="fa fa-database"></i></span><span>Data</span>
                 </a>
               </span>
             </div>
@@ -60,16 +89,14 @@
 
 <!-- project video -->
 <section class="section project-video" style="padding-top: 0; padding-bottom: 0;">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/vBUAny2WqM0"
-                  title="Route2Step project video"
-                  frameborder="0"
-                  allow="autoplay; encrypted-media"
-                  allowfullscreen></iframe>
-        </div>
+  <div class="columns is-centered has-text-centered project-video-inner">
+    <div class="column is-full-width">
+      <div class="publication-video">
+        <iframe src="https://www.youtube.com/embed/vBUAny2WqM0"
+                title="Route2Step project video"
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+                allowfullscreen></iframe>
       </div>
     </div>
   </div>
@@ -150,7 +177,9 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title is-3 title-with-lines">Citation</h2>
-    <pre><code>From Routes to Steps: Separating Semantic Progress from Local Execution
+    <pre><code>Xiangyun Huang, Xiangchen Wang, Runfeng Lin, Yihao Xu, Kangyu Huang,
+Jiang Hengchen, Xiwang Dong, and Lin Jiarong.
+From Routes to Steps: Separating Semantic Progress from Local Execution
 in Vision-and-Language Navigation.
 Route2Step.</code></pre>
     <p class="is-size-7">Publication details will be updated with the final paper version.</p>

@@ -23,6 +23,20 @@ body {
   text-decoration: underline;
 }
 
+.author-block {
+  display: inline-block;
+}
+
+.publication-affiliations {
+  margin-top: 0.8rem;
+  line-height: 1.55;
+}
+
+.publication-notes {
+  margin-top: 0.45rem;
+  line-height: 1.45;
+}
+
 .publication-venue {
   margin-top: 0.5rem;
   color: #555;
@@ -37,10 +51,28 @@ body {
   font-size: 1rem;
 }
 
+.link-block .brand-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  object-fit: contain;
+}
+
+.project-video-inner {
+  width: calc(100% - 2rem);
+  max-width: 1080px;
+  margin: 0 auto !important;
+}
+
+.project-video-inner > .column {
+  padding: 0;
+}
+
 .publication-video {
   position: relative;
   width: 100%;
+  max-width: 1080px;
   height: 0;
+  margin: 0 auto;
   padding-bottom: 56.25%;
   overflow: hidden;
   border-radius: 10px;
@@ -132,6 +164,10 @@ pre code {
 
   .publication-title {
     font-size: 2rem !important;
+  }
+
+  .project-video-inner {
+    width: calc(100% - 1.5rem);
   }
 
   .content {
