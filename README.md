@@ -90,12 +90,9 @@ Route2Step/
 ├── data/
 │   ├── scene_datasets/
 │   │   └── mp3d/
-│   ├── datasets/
-│   │   ├── R2R_VLNCE_v1-3/
-│   │   └── rxr/
-│   └── StreamVLN-Trajectory-Data/
-│       ├── R2R/
-│       └── RxR/
+│   └── datasets/
+│       ├── R2R_VLNCE_v1-3/
+│       └── rxr/
 ├── model_zoo/
 │   ├── MIA/
 │   └── MAG/
@@ -106,6 +103,7 @@ Route2Step/
 
 Run commands from this directory.
 
+<!--
 ### Static M1 evaluation
 
 Start a vLLM server at `http://127.0.0.1:8086`, then run:
@@ -119,6 +117,22 @@ bash scripts/eval_m1_static_qa.sh
 
 Supported `TASK_TYPE` values are `single_m1` and `m1_subinstruction`. Supported
 `DATASET` values are `r2r`, `r2r_deviation`, `rxr`, and `rxr_deviation`.
+-->
+
+### vLLM servers
+
+vLLM can be installed in the evaluation environment or a separate environment:
+
+```bash
+pip install vllm
+```
+
+Start MIA and MAG in two terminals:
+
+```bash
+CUDA_VISIBLE_DEVICES=0 vllm serve model_zoo/MIA --served-model-name m1 --port 8081 --max-model-len 10240 --trust-remote-code
+CUDA_VISIBLE_DEVICES=1 vllm serve model_zoo/MAG --served-model-name m2 --port 8080 --max-model-len 8192 --trust-remote-code
+```
 
 ### R2R navigation evaluation
 
