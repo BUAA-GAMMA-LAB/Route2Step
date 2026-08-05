@@ -1,4 +1,5 @@
 /data/
+/eval/
 __pycache__/
 *.py[cod]
 *.log

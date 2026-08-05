@@ -18,12 +18,12 @@ export ROOT_IMAGE_DIR="data/StreamVLN-Trajectory-Data/R2R/"
 export PYTORCH_CUDA_ALLOC_CONF='expandable_segments:True'
 
 # === 1. Model paths ===
-# Set MODEL1_PATH and MODEL2_PATH for local loading. Leave them empty when using vLLM.
-MODEL1_PATH=""
-MODEL2_PATH=""
+# Transformers local loading is the default.
+MODEL1_PATH="model_zoo/MIA"
+MODEL2_PATH="model_zoo/MAG"
 EXP_NAME="run"
 CONFIG="configs/vln_rxr_dual.yaml"
-RESULT_ROOT="eval_results/rxr"
+RESULT_ROOT="eval/rxr"
 NUM_WORKERS=6
 
 # Recover token ablation. Default keeps original behavior.
@@ -32,8 +32,9 @@ M2_RECOVER_TOKEN="<|mode_recover|>"
 
 
 # === 2. Optional vLLM servers ===
-M1_SERVER_ARGS="--m1_server_url http://127.0.0.1:8081 --m1_server_model m1"
-M2_SERVER_ARGS="--m2_server_url http://127.0.0.1:8080 --m2_server_model m2"
+USE_VLLM="${USE_VLLM:-false}"
+M1_SERVER_ARGS=""
+M2_SERVER_ARGS=""
 
 # The evaluation waits for the servers to become ready before starting Habitat.
 wait_for_vllm_server() {
@@ -50,8 +51,12 @@ wait_for_vllm_server() {
     echo "$(date '+%F %T') ${server_name} vLLM server is ready at ${server_url}."
 }
 
-wait_for_vllm_server "M1" "http://127.0.0.1:8081"
-wait_for_vllm_server "M2" "http://127.0.0.1:8080"
+if [ "$USE_VLLM" = "true" ]; then
+    M1_SERVER_ARGS="--m1_server_url http://127.0.0.1:8081 --m1_server_model m1"
+    M2_SERVER_ARGS="--m2_server_url http://127.0.0.1:8080 --m2_server_model m2"
+    wait_for_vllm_server "M1" "http://127.0.0.1:8081"
+    wait_for_vllm_server "M2" "http://127.0.0.1:8080"
+fi
 
 # === 3. Run evaluation ===
 # Additional arguments are forwarded to the Habitat evaluation entry point.

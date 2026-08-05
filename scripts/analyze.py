@@ -126,7 +126,7 @@ def find_all_exps(root_dir):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--exp_name", type=str, default=None, help="Name of specific experiment folder (optional)")
-    parser.add_argument("--result_dir", type=str, default="eval_results", help="Root directory for results")
+    parser.add_argument("--result_dir", type=str, default="eval/r2r_v1_3", help="Root directory for results")
     args = parser.parse_args()
 
     if args.exp_name:

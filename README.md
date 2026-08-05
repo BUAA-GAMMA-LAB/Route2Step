@@ -96,12 +96,17 @@ Route2Step/
 ├── model_zoo/
 │   ├── MIA/
 │   └── MAG/
-└── eval_results/
+└── eval/
 ```
 
 ## Evaluation
 
-Run commands from this directory.
+Run commands from the repository root and activate the environment in each new
+terminal:
+
+```bash
+conda activate route2step_py310
+```
 
 <!--
 ### Static M1 evaluation
@@ -121,7 +126,8 @@ Supported `TASK_TYPE` values are `single_m1` and `m1_subinstruction`. Supported
 
 ### vLLM servers
 
-vLLM can be installed in the evaluation environment or a separate environment:
+Transformers local loading is enabled by default. For faster evaluation, vLLM
+can be installed in the evaluation environment or a separate environment:
 
 ```bash
 pip install vllm
@@ -134,23 +140,31 @@ CUDA_VISIBLE_DEVICES=0 vllm serve model_zoo/MIA --served-model-name m1 --port 80
 CUDA_VISIBLE_DEVICES=1 vllm serve model_zoo/MAG --served-model-name m2 --port 8080 --max-model-len 8192 --trust-remote-code
 ```
 
-### R2R navigation evaluation
+Set `USE_VLLM=true` when launching an evaluation script to use these servers.
 
-Start the M1 and M2 vLLM servers at ports `8081` and `8080`, respectively.
-Set the model, data, and result paths in
-`scripts/eval_qwen2_5_dual_lm.sh`, then run:
+### Navigation evaluation
+
+Both scripts load `model_zoo/MIA` and `model_zoo/MAG` locally by default:
 
 ```bash
+# R2R-CE
 bash scripts/eval_qwen2_5_dual_lm.sh
+# RxR-CE
+bash scripts/eval_qwen2_5_dual_rxr.sh
 ```
 
-### RxR navigation evaluation
-
-Configure the RxR data paths and model servers in
-`scripts/eval_qwen2_5_dual_rxr.sh`, then run:
+Use the servers above for faster evaluation:
 
 ```bash
-bash scripts/eval_qwen2_5_dual_rxr.sh
+USE_VLLM=true bash scripts/eval_qwen2_5_dual_lm.sh
+USE_VLLM=true bash scripts/eval_qwen2_5_dual_rxr.sh
+```
+
+### Analyze results
+
+```bash
+python scripts/analyze.py --result_dir eval/r2r_v1_3
+python scripts/analyze.py --result_dir eval/rxr
 ```
 
 The alignment and data-construction utilities are under `seg/`, `DAgger/`,
