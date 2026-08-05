@@ -40,6 +40,10 @@ This repository contains the official implementation of **Route2Step**, a
 vision-and-language navigation framework that separates semantic progress
 tracking from local action execution through an explicit step-level interface.
 
+<p align="center">
+  <img src="docs/static/images/route2step_framework.png" width="100%" alt="Route2Step framework">
+</p>
+
 ## Release Status
 
 | Component | Status |

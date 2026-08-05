@@ -119,6 +119,11 @@ body {
   line-height: 1.6;
 }
 
+.framework-figure {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
 .content {
   font-size: 17px;
 }
