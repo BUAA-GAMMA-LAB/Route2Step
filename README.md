@@ -25,9 +25,9 @@
   </p>
 </p>
 
-<!-- TODO: add the arXiv and Bilibili links when available. -->
+<!-- TODO: add the Bilibili link when available. -->
 <p id="top" align="center">
-  <img src="https://img.shields.io/badge/arXiv-coming_soon-red?logo=arxiv" alt="arXiv">
+  <a href="https://arxiv.org/abs/2608.03143"><img src="https://img.shields.io/badge/arXiv-2608.03143-red?logo=arxiv" alt="arXiv"></a>
   <a href="https://sisyphus-hxy.github.io/Route2Step/"><img src="https://img.shields.io/badge/Project_Page-0065D3?logo=rocket&amp;logoColor=white" alt="Project Page"></a>
   <a href="https://huggingface.co/XiangyunHuang/Route2Step"><img src="https://img.shields.io/badge/Hugging_Face-FF9D00?logo=huggingface&amp;logoColor=white" alt="Hugging Face"></a>
   <a href="https://www.youtube.com/watch?v=vBUAny2WqM0"><img src="https://img.shields.io/badge/YouTube-D33846?logo=youtube&amp;logoColor=white" alt="YouTube"></a>
@@ -120,3 +120,17 @@ The alignment and data-construction utilities are under `seg/`, `DAgger/`,
 and `scripts/`. Use `python <script> --help` to inspect their input paths and
 options. Training-only dependencies can be added to this same Conda
 environment later.
+
+## Citation
+
+```bibtex
+@misc{huang2026routesstepsseparatingsemantic,
+      title={From Routes to Steps: Separating Semantic Progress from Local Execution in Vision-and-Language Navigation},
+      author={Xiangyun Huang and Xiangchen Wang and Runfeng Lin and Yihao Xu and Kangyu Huang and Jiang Hengchen and Xiwang Dong and Lin Jiarong},
+      year={2026},
+      eprint={2608.03143},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2608.03143},
+}
+```
