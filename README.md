@@ -36,9 +36,17 @@
 
 ## 🏠 About
 
-This repository contains the implementation of **Route2Step**, a
-vision-and-language navigation framework that separates route-level progress
-tracking from local action execution.
+This repository contains the official implementation of **Route2Step**, a
+vision-and-language navigation framework that separates semantic progress
+tracking from local action execution through an explicit step-level interface.
+
+## Release Status
+
+| Component | Status |
+|---|---|
+| Code | ✅ Available |
+| MIA and MAG checkpoints | ✅ Available |
+| Processed supervision data | Not released |
 
 ## 🛠 Getting Started
 
@@ -63,21 +71,36 @@ cd habitat-sim
 python setup.py install --headless --with-cuda --bullet
 cd ..
 git clone --branch v0.2.4 https://github.com/facebookresearch/habitat-lab.git
-cd habitat-lab
-pip install -e habitat-lab
-cd ..
+pip install -e habitat-lab/habitat-lab
 ```
 
 ## External data and models
 
-Datasets and Matterport3D assets are not bundled. Place MP3D scenes under
-`data/scene_datasets/mp3d/` and R2R/RxR episodes under `data/datasets/`, or
-update the paths in `configs/`.
+Datasets and Matterport3D assets are not bundled. Download the model repository
+and place its `MIA/` and `MAG/` directories under `model_zoo/`.
 
 The Route2Step model weights are available in the single Hugging Face
 repository [`XiangyunHuang/Route2Step`](https://huggingface.co/XiangyunHuang/Route2Step),
-under the `MIA/` and `MAG/` subdirectories. Download the repository and pass
-the corresponding subdirectory as the M1 or M2 model path.
+under the `MIA/` and `MAG/` subdirectories.
+
+### Expected data layout
+
+```text
+Route2Step/
+├── data/
+│   ├── scene_datasets/
+│   │   └── mp3d/
+│   ├── datasets/
+│   │   ├── R2R_VLNCE_v1-3/
+│   │   └── rxr/
+│   └── StreamVLN-Trajectory-Data/
+│       ├── R2R/
+│       └── RxR/
+├── model_zoo/
+│   ├── MIA/
+│   └── MAG/
+└── eval_results/
+```
 
 ## Evaluation
 
@@ -118,19 +141,19 @@ bash scripts/eval_qwen2_5_dual_rxr.sh
 
 The alignment and data-construction utilities are under `seg/`, `DAgger/`,
 and `scripts/`. Use `python <script> --help` to inspect their input paths and
-options. Training-only dependencies can be added to this same Conda
-environment later.
+options. Training dependencies and end-to-end training recipes will be
+provided in a subsequent release.
 
 ## Citation
 
 ```bibtex
-@misc{huang2026routesstepsseparatingsemantic,
-      title={From Routes to Steps: Separating Semantic Progress from Local Execution in Vision-and-Language Navigation},
-      author={Xiangyun Huang and Xiangchen Wang and Runfeng Lin and Yihao Xu and Kangyu Huang and Jiang Hengchen and Xiwang Dong and Lin Jiarong},
-      year={2026},
-      eprint={2608.03143},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2608.03143},
+@misc{huang2026route2step,
+  title         = {From Routes to Steps: Separating Semantic Progress from Local Execution in Vision-and-Language Navigation},
+  author        = {Xiangyun Huang and Xiangchen Wang and Runfeng Lin and Yihao Xu and Kangyu Huang and Jiang Hengchen and Xiwang Dong and Lin Jiarong},
+  year          = {2026},
+  eprint        = {2608.03143},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  url           = {https://arxiv.org/abs/2608.03143}
 }
 ```
