@@ -40,9 +40,7 @@ habitat:
         type: SPL
 
   dataset:
-    # This repo currently registers only R2RVLN-v1 in Habitat.
-    # RxR eval works here only if your local rxr json schema is compatible.
-    type: R2RVLN-v1
+    type: Route2StepVLNDataset-v1
     split: val_unseen
     scenes_dir: data/scene_datasets/
     data_path: data/datasets/rxr/{split}/{split}_guide.json.gz

@@ -51,6 +51,7 @@ if ROOT_DIR not in sys.path:
     sys.path.insert(0, ROOT_DIR)
 
 from agent_dual_qwen2_5_lm import SYSTEM_PROMPT, build_m2_prompt, get_images_for_modules_from_pil_history
+from habitat_vln.route2step_vln_dataset import Route2StepVLNDatasetV1  # noqa: F401
 
 # --- NumPy Compatibility Patch ---
 if not hasattr(np, 'float'): np.float = float
@@ -1712,7 +1713,7 @@ if __name__ == "__main__":
         ),
     )
     parser.add_argument("--habitat_config", type=str, default="configs/vln_r2r_dual.yaml")
-    parser.add_argument("--dataset_type", type=str, default="R2RVLN-v1")
+    parser.add_argument("--dataset_type", type=str, default="Route2StepVLNDataset-v1")
     parser.add_argument("--dataset_data_path", type=str, default="data/datasets/R2R_VLNCE_v1-3/{split}/{split}.json.gz")
     parser.add_argument("--split", type=str, default="train")
     parser.add_argument(

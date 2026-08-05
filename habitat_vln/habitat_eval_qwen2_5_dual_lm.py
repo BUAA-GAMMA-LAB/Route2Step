@@ -6,7 +6,6 @@ import gzip
 import math
 import copy
 import argparse
-import tempfile
 import multiprocessing as mp
 from omegaconf import OmegaConf, open_dict, read_write
 
@@ -20,6 +19,7 @@ import habitat
 from habitat.config.default import get_config
 from habitat.datasets import make_dataset
 from agent_dual_qwen2_5_lm import DualReason_Agent
+from habitat_vln.route2step_vln_dataset import Route2StepVLNDatasetV1  # noqa: F401
 from vln_path_metrics import compute_ndtw, compute_sdtw
 
 
@@ -103,44 +103,6 @@ def _load_episode_ids_file(path):
             continue
         episode_ids.add(str(item))
     return episode_ids
-
-
-def _prepare_rxr_dataset_json(dataset_path, raw_langs):
-    targets = _parse_language_filter(raw_langs)
-
-    with gzip.open(dataset_path, "rt", encoding="utf-8") as f:
-        payload = json.load(f)
-
-    episodes = payload.get("episodes", [])
-    original_count = len(episodes)
-
-    if targets:
-        filtered = []
-        for ep in episodes:
-            inst = ep.get("instruction", {})
-            lang = inst.get("language", "") if isinstance(inst, dict) else ""
-            if _lang_match(lang, targets):
-                filtered.append(ep)
-        episodes = filtered
-        payload["episodes"] = episodes
-
-    for ep in episodes:
-        inst = ep.get("instruction", {})
-        if isinstance(inst, dict):
-            ep["instruction"] = {
-                "instruction_text": inst.get("instruction_text", ""),
-                "instruction_tokens": inst.get("instruction_tokens"),
-            }
-
-    # R2R loader requires this field, but RxR guides may not include it.
-    payload.setdefault("instruction_vocab", {"word_list": []})
-
-    fd, tmp_path = tempfile.mkstemp(prefix="rxr_eval_", suffix=".json.gz")
-    os.close(fd)
-    with gzip.open(tmp_path, "wt", encoding="utf-8") as f:
-        json.dump(payload, f)
-
-    return tmp_path, original_count, len(episodes), bool(targets)
 
 
 def _infer_rxr_follower_paths(dataset_path):
@@ -391,8 +353,6 @@ def eval_worker(worker_id, task_queue, args, logical_gpu_id, physical_gpu_id):
 
     with open_dict(config), read_write(config):
         config.habitat.dataset.split = args.eval_split
-        if getattr(args, "dataset_path_override", ""):
-            config.habitat.dataset.data_path = args.dataset_path_override
         config.habitat.environment.max_episode_steps = getattr(
             args, "dynamic_env_max_episode_steps", args.max_episode_steps
         )
@@ -637,7 +597,6 @@ def main():
         config.habitat.dataset.split = args.eval_split
 
     dataset_path = config.habitat.dataset.data_path.format(split=config.habitat.dataset.split)
-    args.dataset_path_override = ""
     args.dynamic_max_steps_by_episode_id = {}
     args.dynamic_env_max_episode_steps = args.max_episode_steps
     if "/rxr/" in dataset_path or dataset_path.endswith("_guide.json.gz"):
@@ -669,24 +628,12 @@ def main():
                     f"Falling back to fixed max_episode_steps={args.max_episode_steps}."
                 )
 
-        prepared_path, original_count, after_count, used_lang_filter = _prepare_rxr_dataset_json(
-            dataset_path, args.rxr_language
-        )
-        args.dataset_path_override = prepared_path
-        with open_dict(config), read_write(config):
-            config.habitat.dataset.data_path = prepared_path
-        print(
-            f"Prepared RxR dataset file: {prepared_path} "
-            f"(original={original_count}, after_filter={after_count}, "
-            f"lang_filter={'on' if used_lang_filter else 'off'})"
-        )
-
     tmp_config = config
 
     dataset = make_dataset(id_dataset=tmp_config.habitat.dataset.type, config=tmp_config.habitat.dataset)
     all_ep_ids = [str(ep.episode_id) for ep in dataset.episodes]
 
-    if args.rxr_language and not args.dataset_path_override:
+    if args.rxr_language:
         dataset_path = tmp_config.habitat.dataset.data_path.format(split=tmp_config.habitat.dataset.split)
         lang_ep_ids, total_eps_in_json, matched_eps = _load_episode_ids_by_language(
             dataset_path, args.rxr_language

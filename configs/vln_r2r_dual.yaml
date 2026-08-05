@@ -40,7 +40,7 @@ habitat:
         type: SPL
         
   dataset:
-    type: R2RVLN-v1
+    type: Route2StepVLNDataset-v1
     split: val_unseen
     scenes_dir: data/scene_datasets/
     data_path: data/datasets/R2R_VLNCE_v1-3/{split}/{split}.json.gz

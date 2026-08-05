@@ -1,6 +1,7 @@
 /data/
-  __pycache__/
-  *.py[cod]
-  *.log
-  *.pth
-  *.pt
+__pycache__/
+*.py[cod]
+*.log
+*.pth
+*.pt
+/model_zoo/

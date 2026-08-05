@@ -23,6 +23,7 @@ if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 
 from agent_single_action import SingleActionAgent
+from habitat_vln.route2step_vln_dataset import Route2StepVLNDatasetV1  # noqa: F401
 from vln_path_metrics import compute_ndtw, compute_sdtw
 
 
