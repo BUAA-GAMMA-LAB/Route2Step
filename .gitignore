@@ -5,3 +5,5 @@ __pycache__/
 *.pth
 *.pt
 /model_zoo/
+/habitat-sim/
+/habitat-lab/
