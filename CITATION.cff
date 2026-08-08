@@ -19,8 +19,8 @@ authors:
     family-names: Dong
   - given-names: Jiarong
     family-names: Lin
-repository-code: "https://github.com/Sisyphus-hxy/Route2Step"
-url: "https://sisyphus-hxy.github.io/Route2Step/"
+repository-code: "https://github.com/BUAA-GAMMA-LAB/Route2Step"
+url: "https://buaa-gamma-lab.github.io/Route2Step/"
 preferred-citation:
   type: article
   title: "From Routes to Steps: Separating Semantic Progress from Local Execution in Vision-and-Language Navigation"

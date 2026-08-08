@@ -27,7 +27,7 @@
 
 <p id="top" align="center">
   <a href="https://arxiv.org/abs/2608.03143"><img src="https://img.shields.io/badge/arXiv-2608.03143-red?logo=arxiv" alt="arXiv"></a>
-  <a href="https://sisyphus-hxy.github.io/Route2Step/"><img src="https://img.shields.io/badge/Project_Page-0065D3?logo=rocket&amp;logoColor=white" alt="Project Page"></a>
+  <a href="https://buaa-gamma-lab.github.io/Route2Step/"><img src="https://img.shields.io/badge/Project_Page-0065D3?logo=rocket&amp;logoColor=white" alt="Project Page"></a>
   <a href="https://huggingface.co/XiangyunHuang/Route2Step"><img src="https://img.shields.io/badge/Hugging_Face-FF9D00?logo=huggingface&amp;logoColor=white" alt="Hugging Face"></a>
   <a href="https://www.youtube.com/watch?v=vBUAny2WqM0"><img src="https://img.shields.io/badge/YouTube-D33846?logo=youtube&amp;logoColor=white" alt="YouTube"></a>
   <a href="https://www.bilibili.com/video/BV15SMX6FEG8/"><img src="https://img.shields.io/badge/Bilibili-00A1D6?logo=bilibili&amp;logoColor=white" alt="Bilibili"></a>
