@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="style.css">
+  <script defer src="replays.js"></script>
 </head>
 
 <body>
@@ -160,48 +161,126 @@
     <div class="content has-text-centered">
       <h2 class="title is-3 title-with-lines">Simulation Replays</h2>
 
-      <h3 class="title is-4 replay-dataset-title">R2R-CE</h3>
-      <div class="replay-grid">
-        <figure class="replay-card">
-          <video controls muted loop playsinline preload="metadata" poster="./static/images/replays/r2r_896.jpg">
-            <source src="./static/videos/r2r_896.mp4" type="video/mp4">
-          </video>
-          <figcaption>Episode 896</figcaption>
-        </figure>
-        <figure class="replay-card">
-          <video controls muted loop playsinline preload="metadata" poster="./static/images/replays/r2r_1757.jpg">
-            <source src="./static/videos/r2r_1757.mp4" type="video/mp4">
-          </video>
-          <figcaption>Episode 1757</figcaption>
-        </figure>
-        <figure class="replay-card">
-          <video controls muted loop playsinline preload="metadata" poster="./static/images/replays/r2r_1807.jpg">
-            <source src="./static/videos/r2r_1807.mp4" type="video/mp4">
-          </video>
-          <figcaption>Episode 1807</figcaption>
-        </figure>
-      </div>
+      <div class="replay-pair">
+        <div class="replay-carousel" data-carousel>
+          <h3 class="title is-4 replay-dataset-title">R2R-CE</h3>
+          <div class="replay-viewport">
+            <figure class="replay-slide is-active">
+              <video controls muted loop playsinline preload="metadata" poster="./static/images/replays/r2r_896.jpg">
+                <source src="./static/videos/r2r_896.mp4" type="video/mp4">
+              </video>
+              <figcaption class="replay-instruction">
+                <strong>Instruction:</strong> With the large window to your right, head forward and to your left until
+                you reach the base of some stairs leading upwards. Continue past the stairs and towards some more
+                stairs leading downwards. Pass to the right of those second stairs and down a narrow hallway with the
+                banister on your left and some artwork on the wall towards your right. Enter the next room on your
+                right when you reach it.
+              </figcaption>
+            </figure>
+            <figure class="replay-slide">
+              <video controls muted loop playsinline preload="metadata" poster="./static/images/replays/r2r_1757.jpg">
+                <source src="./static/videos/r2r_1757.mp4" type="video/mp4">
+              </video>
+              <figcaption class="replay-instruction">
+                <strong>Instruction:</strong> Go straight pas the couches and the fireplace on the right. Go through
+                the double doors. Turn right and pass the couches. Go into the room on the right. Wait near the round
+                table and chairs with the white flower in the table.
+              </figcaption>
+            </figure>
+            <figure class="replay-slide">
+              <video controls muted loop playsinline preload="metadata" poster="./static/images/replays/r2r_1807.jpg">
+                <source src="./static/videos/r2r_1807.mp4" type="video/mp4">
+              </video>
+              <figcaption class="replay-instruction">
+                <strong>Instruction:</strong> Walk towards the black couch, and walk between the couch and the counter.
+                Go straight down the hallway and passed the sitting area on the left. Continue straight. Stop by the
+                small table and large mirror hanging on the wall.
+              </figcaption>
+            </figure>
+            <button class="replay-arrow replay-prev" type="button" aria-label="Previous R2R replay">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="replay-arrow replay-next" type="button" aria-label="Next R2R replay">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+          <div class="replay-dots" aria-label="R2R replay pages"></div>
+        </div>
 
-      <h3 class="title is-4 replay-dataset-title">RxR-CE</h3>
-      <div class="replay-grid">
-        <figure class="replay-card">
-          <video controls muted loop playsinline preload="metadata" poster="./static/images/replays/rxr_5055.jpg">
-            <source src="./static/videos/rxr_5055.mp4" type="video/mp4">
-          </video>
-          <figcaption>Episode 5055</figcaption>
-        </figure>
-        <figure class="replay-card">
-          <video controls muted loop playsinline preload="metadata" poster="./static/images/replays/rxr_9042.jpg">
-            <source src="./static/videos/rxr_9042.mp4" type="video/mp4">
-          </video>
-          <figcaption>Episode 9042</figcaption>
-        </figure>
-        <figure class="replay-card">
-          <video controls muted loop playsinline preload="metadata" poster="./static/images/replays/rxr_9142.jpg">
-            <source src="./static/videos/rxr_9142.mp4" type="video/mp4">
-          </video>
-          <figcaption>Episode 9142</figcaption>
-        </figure>
+        <div class="replay-carousel" data-carousel>
+          <h3 class="title is-4 replay-dataset-title">RxR-CE</h3>
+          <div class="replay-viewport">
+            <figure class="replay-slide is-active">
+              <video controls muted loop playsinline preload="metadata" poster="./static/images/replays/rxr_5055.jpg">
+                <source src="./static/videos/rxr_5055.mp4" type="video/mp4">
+              </video>
+              <figcaption class="replay-instruction">
+                <strong>Instruction:</strong> We're in a living room, and we're facing towards a corner of a wall, on
+                the right there's a wide painting and on the left there's a console table with some decorations on
+                top, turn around... You're now facing towards four glass doors, on the left there's a small fence
+                that's attached to the wall, walk towards that, turn slightly to the left, and walk past the four glass
+                doors on the right, and the double doors on the left, continue walking down the hallway, pass the
+                console table on the right, sorry, pass the console table that's on the left, and the painting that's on
+                the right... We're now facing towards another console table and on top of it there are decorations,
+                turn towards the right, on your right there are four glass doors and on the left there's a piano and
+                many pictures on the wall... Walk towards the dresser that's in front of you and once you reach the
+                dresser, you'll be facing towards a window which is covered with some beautiful curtains, turn towards
+                the left and enter the archway that's in front of you... Once you enter the arch way, you'll come across
+                a bathroom and in front of you there's going to be a tub, walk towards that tub, pass the arch way
+                that's in front of you, once you get into the bathroom and you're facing towards the tub, walk towards
+                the cabinet that's in the middle and it's on your left, once you're facing towards a sink and a mirror,
+                turn slightly to the right and walk past the small hallway that's in front of you... Once you pass that
+                hallway, walk towards the wall that's in front of you and you've reached your destination.
+              </figcaption>
+            </figure>
+            <figure class="replay-slide">
+              <video controls muted loop playsinline preload="metadata" poster="./static/images/replays/rxr_9042.jpg">
+                <source src="./static/videos/rxr_9042.mp4" type="video/mp4">
+              </video>
+              <figcaption class="replay-instruction">
+                <strong>Instruction:</strong> You are in a living area, turn towards your right and keep moving
+                forward. In front, you find a section of a room, go pass through the section and you enter into a
+                corridor. Keep moving forward near to the wall in front of you and turn towards your left. You find an
+                other section of a corridor, keep moving forward in the corridor, till you reach a staircase on your
+                left. Turn towards the stair case and climb. Climb up the stairs, all the way to the top floor. Turn
+                towards your slight right and you find an other section of a room. Go pass through the section by
+                turning towards your slight right and you enter into a living area. Turn towards your left and keep
+                moving forward. In front, you find a kitchen area, go near that area and stand in front of a coffee
+                maker. Now, turn towards your slight left, you find an other section of a room. Go pass through the
+                section and turn towards your slight right again. In front, you find a glass dining table. Walk across
+                the glass dining table and stand near the window. You reached your destination.
+              </figcaption>
+            </figure>
+            <figure class="replay-slide">
+              <video controls muted loop playsinline preload="metadata" poster="./static/images/replays/rxr_9142.jpg">
+                <source src="./static/videos/rxr_9142.mp4" type="video/mp4">
+              </video>
+              <figcaption class="replay-instruction">
+                <strong>Instruction:</strong> You are standing in a circular room facing an open archway. You are going
+                to walk through that open arch way and proceed down the hallway. You are going to go all the way down
+                the hallway until you end up in front of a kitchen island. Once you get to that kitchen island you are
+                going to turn left. And proceed down the next hallway of arches. You are going to go all the way down
+                that hallway until the hallway ends and there is a white flower pot with some light pink flowers in it.
+                You are going to go through the archway to the left. From there you are going to walk over to the bottom
+                of the stairs. And then once you're at the bottom of the stairs you're going to go through the archway
+                immediately to the left of the stairs. In this circular room, there's a lot of circles, you are going
+                to see 2 archways and a large rectangular mirror. You are going to go through the archway on the left.
+                It has what looks like a rough iron light fixture and its next to a partially stained glass window. Go
+                through that archway. Then you are going to continue straight and step onto that first rug. When you are
+                standing on that rug you will see a bunch of men on horses in a picture to the left. You are going to
+                enter the doorway to the left right after that picture. That is a bathroom. You are going to step into
+                that bathroom and then you have reached the end.
+              </figcaption>
+            </figure>
+            <button class="replay-arrow replay-prev" type="button" aria-label="Previous RxR replay">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="replay-arrow replay-next" type="button" aria-label="Next RxR replay">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+          <div class="replay-dots" aria-label="RxR replay pages"></div>
+        </div>
       </div>
     </div>
   </div>
