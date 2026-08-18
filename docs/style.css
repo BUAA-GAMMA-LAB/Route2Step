@@ -137,8 +137,8 @@ body {
 }
 
 .replay-container {
-  width: calc(100% - 3rem);
-  max-width: 850px;
+  width: 100%;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -151,7 +151,7 @@ body {
 
 .replay-carousel {
   min-width: 0;
-  padding: 1rem;
+  padding: 0.75rem;
   border-radius: 12px;
   background: #f5f5f5;
 }
