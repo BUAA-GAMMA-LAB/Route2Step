@@ -138,14 +138,14 @@ body {
 
 .replay-container {
   width: calc(100% - 3rem);
-  max-width: 1280px;
+  max-width: 850px;
   margin: 0 auto;
 }
 
 .replay-pair {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem;
   align-items: start;
 }
 
