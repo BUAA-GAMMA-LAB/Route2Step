@@ -1,29 +1,34 @@
+<br>
 <p align="center">
-  <h1 align="center">Route2Step</h1>
-  <p align="center"><strong>From Routes to Steps: Separating Semantic Progress from Local Execution in Vision-and-Language Navigation</strong></p>
+<h1 align="center"><strong>From Routes to Steps: Separating Semantic Progress from Local Execution in Vision-and-Language Navigation</strong></h1>
   <p align="center">
-    Xiangyun Huang<sup>1</sup> ·
-    Xiangchen Wang<sup>2</sup> ·
-    Runfeng Lin<sup>1,3</sup> ·
-    Yihao Xu<sup>1</sup> ·
-    Kangyu Huang<sup>4</sup> ·
-    Jiang Hengchen<sup>1,5</sup> ·
-    Xiwang Dong<sup>1</sup> ·
-    Lin Jiarong<sup>1</sup>
+    <strong>
+    Xiangyun Huang<sup>1</sup>&emsp;
+    Xiangchen Wang<sup>2</sup>&emsp;
+    Runfeng Lin<sup>1,3</sup>&emsp;
+    Yihao Xu<sup>1</sup>
     <br>
-    <sup>1</sup>Beihang University ·
-    <sup>2</sup>Southern University of Science and Technology ·
-    <sup>3</sup>Central South University ·
-    <sup>4</sup>Harbin Institute of Technology, Shenzhen ·
+    Kangyu Huang<sup>4</sup>&emsp;
+    Jiang Hengchen<sup>1,5</sup>&emsp;
+    Xiwang Dong<sup>1</sup>&emsp;
+    Lin Jiarong<sup>1,*</sup>
+    </strong>
+    <br>
+    <sup>1</sup>Beihang University&emsp;
+    <sup>2</sup>Southern University of Science and Technology&emsp;
+    <sup>3</sup>Central South University&emsp;
+    <br>
+    <sup>4</sup>Harbin Institute of Technology, Shenzhen&emsp;
     <sup>5</sup>Dalian University of Technology
   </p>
-  <p align="center">
-    <a href="https://arxiv.org/abs/2608.03143"><img src="https://img.shields.io/badge/arXiv-2608.03143-red?logo=arxiv" alt="arXiv"></a>
-    <a href="https://buaa-gamma-lab.github.io/Route2Step/"><img src="https://img.shields.io/badge/Project_Page-0065D3?logo=rocket&amp;logoColor=white" alt="Project Page"></a>
-    <a href="https://huggingface.co/XiangyunHuang/Route2Step"><img src="https://img.shields.io/badge/Hugging_Face-FF9D00?logo=huggingface&amp;logoColor=white" alt="Hugging Face"></a>
-    <a href="https://www.youtube.com/watch?v=vBUAny2WqM0"><img src="https://img.shields.io/badge/YouTube-D33846?logo=youtube&amp;logoColor=white" alt="YouTube"></a>
-    <a href="https://www.bilibili.com/video/BV15SMX6FEG8/"><img src="https://img.shields.io/badge/Bilibili-00A1D6?logo=bilibili&amp;logoColor=white" alt="Bilibili"></a>
-  </p>
+</p>
+
+<p id="top" align="center">
+  <a href="https://arxiv.org/abs/2608.03143"><img src="https://img.shields.io/badge/arXiv-2608.03143-red?logo=arxiv" alt="arXiv"></a>
+  <a href="https://buaa-gamma-lab.github.io/Route2Step/"><img src="https://img.shields.io/badge/Project_Page-0065D3?logo=rocket&amp;logoColor=white" alt="Project Page"></a>
+  <a href="https://huggingface.co/XiangyunHuang/Route2Step"><img src="https://img.shields.io/badge/Hugging_Face-FF9D00?logo=huggingface&amp;logoColor=white" alt="Hugging Face"></a>
+  <a href="https://www.youtube.com/watch?v=vBUAny2WqM0"><img src="https://img.shields.io/badge/YouTube-D33846?logo=youtube&amp;logoColor=white" alt="YouTube"></a>
+  <a href="https://www.bilibili.com/video/BV15SMX6FEG8/"><img src="https://img.shields.io/badge/Bilibili-00A1D6?logo=bilibili&amp;logoColor=white" alt="Bilibili"></a>
 </p>
 
 Route2Step is a vision-and-language navigation framework that separates route-level progress tracking from local action execution through an explicit step-level interface.
