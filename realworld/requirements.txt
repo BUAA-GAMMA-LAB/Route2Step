@@ -1,0 +1,5 @@
+# Dependencies for the remote real-world VLN server.
+Flask
+Pillow
+numpy
+requests
